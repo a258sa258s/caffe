@@ -61,7 +61,8 @@ find_package(OpenCV QUIET COMPONENTS core highgui imgproc imgcodecs)
 if(NOT OpenCV_FOUND) # if not OpenCV 3.x, then imgcodecs are not found
   find_package(OpenCV REQUIRED COMPONENTS core highgui imgproc)
 endif()
-include_directories(SYSTEM ${OpenCV_INCLUDE_DIRS})
+# --include_directories(SYSTEM ${OpenCV_INCLUDE_DIRS})
+include_directories(${OpenCV_INCLUDE_DIRS})
 list(APPEND Caffe_LINKER_LIBS ${OpenCV_LIBS})
 message(STATUS "OpenCV found (${OpenCV_CONFIG_PATH})")
 
